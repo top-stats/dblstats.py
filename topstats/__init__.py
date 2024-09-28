@@ -28,5 +28,6 @@ from .client import Client
 __title__ = 'topstats'
 __author__ = 'null8626'
 __license__ = 'MIT'
+__copyright__ = 'Copyright (c) 2020 Arthurdw; Copyright (c) 2024 null8626'
 __version__ = '1.0.0'
 __all__ = ('Client',)
