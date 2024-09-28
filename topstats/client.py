@@ -30,7 +30,7 @@ class Client:
     while True:
       try:
         async with self.__session.get(
-          f'https://https://dblstatistics.com/api{path}',
+          f'https://topstats.gg/api{path}',
           headers={ 'Authorization': self.__token }
         ) as resp:
           json = {} if fetch_bytes else await resp.json()
