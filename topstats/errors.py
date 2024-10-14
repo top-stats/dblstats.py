@@ -33,7 +33,7 @@ class Error(Exception):
 
 
 class RequestError(Error):
-  """Thrown upon HTTP request failure. Extends :class:`~topstats.errors.Error`."""
+  """Thrown upon HTTP request failure. Extends :class:`~.errors.Error`."""
 
   __slots__: Tuple[str, ...] = ('message',)
 
@@ -47,7 +47,7 @@ class RequestError(Error):
 
 
 class Ratelimited(RequestError):
-  """Thrown upon HTTP request failure due to being ratelimited and not allowed to make requests for a period of time. Extends :class:`~topstats.errors.RequestError`."""
+  """Thrown upon HTTP request failure due to being ratelimited and not allowed to make requests for a period of time. Extends :class:`~.errors.RequestError`."""
 
   __slots__: Tuple[str, ...] = ('retry_after',)
 

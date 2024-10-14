@@ -102,7 +102,7 @@ class Client:
     :param id: The requested ranked bot's ID. This can be ``None``.
     :type id: Optional[Bot]
 
-    :exception RequestError: If the aiohttp client session used by the :class:`~topstats.Client` object is already closed, or if the :class:`~topstats.Client` cannot send a web request to the web server.
+    :exception RequestError: If the aiohttp client session used by the :class:`~.Client` object is already closed, or if the :class:`~.Client` cannot send a web request to the web server.
     :exception Ratelimited: If the client got ratelimited and not allowed to make requests for a period of time.
 
     :returns: The requested ranked bot. This can be ``None`` if it does not exist.
@@ -113,7 +113,7 @@ class Client:
     return b and Bot(b)
 
   async def close(self) -> None:
-    """Closes the :class:`~topstats.Client` object. Nothing will happen if the client uses a pre-existing :class:`~aiohttp.ClientSession` or if the session is already closed."""
+    """Closes the :class:`~.Client` object. Nothing will happen if the client uses a pre-existing :class:`~aiohttp.ClientSession` or if the session is already closed."""
 
     if self.__own_session and not self.__session.closed:
       await self.__session.close()
