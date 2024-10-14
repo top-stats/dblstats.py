@@ -100,13 +100,13 @@ class Client:
     Fetches a ranked bot from its ID.
 
     :param id: The requested ranked bot's ID. This can be ``None``.
-    :type id: Optional[Bot]
+    :type id: int
 
     :exception RequestError: If the aiohttp client session used by the :class:`~.Client` object is already closed, or if the :class:`~.Client` cannot send a web request to the web server.
     :exception Ratelimited: If the client got ratelimited and not allowed to make requests for a period of time.
 
     :returns: The requested ranked bot. This can be ``None`` if it does not exist.
-    :rtype: Optional[Bot]
+    :rtype: Optional[:class:`~.bot.Bot`]
     """
 
     b = await self.__get(f'/bots/{id}')
