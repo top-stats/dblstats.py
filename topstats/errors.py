@@ -38,7 +38,7 @@ class RequestError(Error):
   __slots__: Tuple[str, ...] = ('message',)
 
   message: Optional[str]
-  """The message returned from the topstats.gg API. This can be ``None``."""
+  """The message returned from the topstats.gg API. This can be :py:obj:`None`."""
 
   def __init__(self, json: dict):
     self.message = json['message']
