@@ -37,7 +37,7 @@ class Client:
   The class that lets you interact with the API.
 
   :param token: The API token to use with the API.
-  :type token: str
+  :type token: :py:class:`str`
   :param session: Whether to use an existing :class:`~aiohttp.ClientSession` for requesting or not. Defaults to :py:obj:`None` (creates a new one instead)
   :type session: Optional[:class:`~aiohttp.ClientSession`]
 
@@ -100,7 +100,7 @@ class Client:
     Fetches a ranked bot from its ID.
 
     :param id: The requested ranked bot's ID. This can be :py:obj:`None`.
-    :type id: int
+    :type id: :py:class:`int`
 
     :exception RequestError: If the :class:`~aiohttp.ClientSession` used by the :class:`.Client` object is already closed, or if the :class:`.Client` cannot send a web request to the web server.
     :exception Ratelimited: If the client got ratelimited and not allowed to make requests for a period of time.
