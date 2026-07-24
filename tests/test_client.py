@@ -1,18 +1,19 @@
-from os import getenv, path
 import sys
+from os import getenv, path
 
 sys.path.insert(0, path.join(path.dirname(path.realpath(__file__)), '..'))
 
 
-from typing import AsyncGenerator, TYPE_CHECKING
 from collections import deque
+from collections.abc import AsyncGenerator
 from time import time
-import pytest_asyncio
+from typing import TYPE_CHECKING
+
 import pytest
+import pytest_asyncio
+from util import RequestMock, _test_attributes
 
 import topstats
-
-from util import _test_attributes, RequestMock
 
 
 @pytest_asyncio.fixture

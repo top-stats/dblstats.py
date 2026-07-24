@@ -52,7 +52,7 @@ class DataPoint:
 class Ranked(DataPoint):
   """A ranked data point. This class contains a value and its rank compared to others and/or difference compared to its previous data point."""
 
-  __slots__: tuple[str, ...] = ('rank', 'difference')
+  __slots__: tuple[str, ...] = ('difference', 'rank')
 
   rank: int | None
   """This data point's rank compared to others."""

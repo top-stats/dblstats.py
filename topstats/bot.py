@@ -12,9 +12,9 @@ class BotStats:
 
   __slots__: tuple[str, ...] = (
     'monthly_votes',
-    'total_votes',
-    'server_count',
     'review_count',
+    'server_count',
+    'total_votes',
   )
 
   monthly_votes: Ranked
@@ -57,8 +57,8 @@ class RecentBotStats:
   """A Discord bot's recent stats for the past 30 hours and past month."""
 
   __slots__: tuple[str, ...] = (
-    'hourly',
     'daily',
+    'hourly',
   )
 
   hourly: list[TimestampedBotStats]
@@ -117,18 +117,18 @@ class Bot(PartialBot):
   """A Discord bot's detailed information."""
 
   __slots__: tuple[str, ...] = (
-    'topgg_id',
-    'owners',
-    'tags',
-    'is_deleted',
     'avatar',
-    'short_description',
-    'prefix',
-    'website',
-    'submitted_at',
-    'timestamp',
     'daily_difference',
+    'is_deleted',
     'monthly_difference',
+    'owners',
+    'prefix',
+    'short_description',
+    'submitted_at',
+    'tags',
+    'timestamp',
+    'topgg_id',
+    'website',
   )
 
   topgg_id: int | None

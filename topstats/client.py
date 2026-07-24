@@ -2,21 +2,21 @@
 # SPDX-FileCopyrightText: 2020 Arthurdw
 # SPDX-FileCopyrightText: 2024-2026 null8626
 
-from aiohttp import ClientResponseError, ClientSession, ClientTimeout
-from collections.abc import Iterable
-from asyncio import sleep
-from typing import Any
-from yarl import Query
-from time import time
-from re import sub
 import json
+from asyncio import sleep
+from collections.abc import Iterable
+from re import sub
+from time import time
+from typing import Any
 
-from .errors import Error, Ratelimited, RequestError
-from .ratelimiter import Ratelimiter, Ratelimiters
+from aiohttp import ClientResponseError, ClientSession, ClientTimeout
+from yarl import Query
+
 from .bot import Bot, PartialBot, RecentBotStats
 from .data import Period, SortBy, Timestamped
+from .errors import Error, Ratelimited, RequestError
+from .ratelimiter import Ratelimiter, Ratelimiters
 from .version import VERSION
-
 
 BASE_URL = 'https://api.topstats.gg'
 MAXIMUM_DELAY_THRESHOLD = 5.0
@@ -36,12 +36,12 @@ class Client:
   """
 
   __slots__: tuple[str, ...] = (
+    '__current_ratelimits',
+    '__global_ratelimiter',
     '__own_session',
+    '__ratelimiters',
     '__session',
     '__token',
-    '__global_ratelimiter',
-    '__ratelimiters',
-    '__current_ratelimits',
   )
 
   __own_session: bool
@@ -88,7 +88,7 @@ class Client:
     }
 
     self.__ratelimiters = endpoint_ratelimits
-    self.__current_ratelimits = {key: None for key in endpoint_ratelimits.keys()}
+    self.__current_ratelimits = {key: None for key in endpoint_ratelimits}
 
   def __repr__(self) -> str:
     return f'<{__class__.__name__} {self.__session!r}>'

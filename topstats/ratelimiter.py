@@ -2,20 +2,16 @@
 # SPDX-FileCopyrightText: 2020 Arthurdw
 # SPDX-FileCopyrightText: 2024-2026 null8626
 
-from collections.abc import Iterable
-from collections import deque
-from time import time
 import asyncio
-import typing
-
-if typing.TYPE_CHECKING:
-  from types import TracebackType
+from collections import deque
+from collections.abc import Iterable
+from time import time
 
 
 class Ratelimiter:
   """Handles ratelimits for a specific endpoint."""
 
-  __slots__: tuple[str, ...] = ('_calls', '__period', '__max_calls', '__lock')
+  __slots__: tuple[str, ...] = ('__lock', '__max_calls', '__period', '_calls')
 
   _calls: deque[float]
   __period: float
@@ -46,9 +42,9 @@ class Ratelimiter:
 
   async def __aexit__(
     self,
-    _exc_type: type[BaseException],
-    _exc_val: BaseException,
-    _exc_tb: 'TracebackType',
+    _exc_type: object,
+    _exc_val: object,
+    _exc_tb: object,
   ) -> None:
     """Stores the previous request's timestamp."""
 
@@ -85,9 +81,9 @@ class Ratelimiters:
 
   async def __aexit__(
     self,
-    exc_type: type[BaseException],
-    exc_val: BaseException,
-    exc_tb: 'TracebackType',
+    exc_type: object,
+    exc_val: object,
+    exc_tb: object,
   ) -> None:
     """Stores the previous request's timestamp."""
 

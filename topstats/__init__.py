@@ -9,12 +9,11 @@ from .bot import (
   RecentBotStats,
   TimestampedBotStats,
 )
-from .errors import Error, Ratelimited, RequestError
+from .client import Client
 from .data import Period, SortBy, Timestamped
+from .errors import Error, Ratelimited, RequestError
 from .ratelimiter import Ratelimiter
 from .version import VERSION
-from .client import Client
-
 
 __title__ = 'topstats'
 __author__ = 'null8626'
@@ -30,11 +29,11 @@ __all__ = (
   'Error',
   'PartialBot',
   'Period',
-  'RequestError',
   'Ranked',
   'Ratelimited',
   'Ratelimiter',
   'RecentBotStats',
+  'RequestError',
   'SortBy',
   'Timestamped',
   'TimestampedBotStats',
